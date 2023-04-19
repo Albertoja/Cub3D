@@ -10,11 +10,17 @@
 # include <sys/time.h>
 # include "mlx/mlx.h"
 # include "libft/libft.h"
-# define SYMBOLS "01 NSWE"
+# define SYMBOLS "0F1 NSWE"
 # define FLOOR "0NSWE"
 # define BUFFER_SIZE 3
 
 typedef struct s_map {
+	char	*no_tex_path;
+	char	*so_tex_path;
+	char	*we_tex_path;
+	char	*ea_tex_path;
+	int		*f_color;
+	int		*c_color;
 	char	**map;
 	int		x;
 	int		y;
@@ -31,6 +37,7 @@ char	*ft_strjoingnl(const char *s1, char const *s2);
 int		ft_count_lines(int fd);
 size_t	ft_linelen(const char *line);
 char	**ft_free_matrix(char **result);
-void	ft_check_map(t_all all);
+void	ft_check_map02(t_all all);
 void	ft_error(char *str, t_all all);
+void	ft_check_map01(t_all all);
 #endif

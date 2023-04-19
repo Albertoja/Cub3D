@@ -62,7 +62,8 @@ void ft_parse_map(char **argv, t_all *all)
 	if (fd < 0)
 		exit(0);
 	all->mapest.map = ft_read_map(fd);
-	ft_check_map(*all);
+	ft_check_map01(*all);
+	ft_check_map02(*all);
 	ft_print_matrix(all->mapest.map);
 	ft_free_matrix(all->mapest.map);
 	//check_map(map->map);
