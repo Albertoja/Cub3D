@@ -40,4 +40,7 @@ char	**ft_free_matrix(char **result);
 void	ft_check_map02(t_all all);
 void	ft_error(char *str, t_all all);
 void	ft_check_map01(t_all all);
+char	*ft_check_good(char *str, char *comp, int a);
+int		ft_check_end_color(char **map, char *str);
+void	ft_clean_map(t_all all);
 #endif

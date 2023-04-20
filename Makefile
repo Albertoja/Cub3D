@@ -1,4 +1,4 @@
-SRCS	= main.c ft_print_matrix.c get_next_line.c get_next_line_aux.c ft_parse_map.c ft_cub3d_aux.c ft_free_matrix.c ft_check_map01.c ft_check_map02.c ft_error.c
+SRCS	= main.c ft_print_matrix.c get_next_line.c get_next_line_aux.c ft_parse_map.c ft_cub3d_aux.c ft_free_matrix.c ft_check_map01.c ft_check_map02.c ft_error.c ft_clean_map.c
 
 OBJS	= ${SRCS:.c=.o}
 
