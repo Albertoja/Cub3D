@@ -7,11 +7,12 @@
 
 int	main(int argc, char **argv)
 {
-	t_all	all;
+	t_all	*all;
 
 	//atexit(leaks);
-	//all = NULL;
 	if(argc != 2)
 		return(1);
-	ft_parse_map(argv, &all);
+	all = ft_parse_map(argv);
+	ft_cube(all);
+	ft_free_struct(all);
 }

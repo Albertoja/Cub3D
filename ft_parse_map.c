@@ -54,19 +54,22 @@ char	**ft_read_map(int fd)
 	return (map);
 }
 
-void ft_parse_map(char **argv, t_all *all)
+t_all *ft_parse_map(char **argv)
 {
+	t_all	*all;
 	int		fd;
+	char	**read;
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		exit(0);
-	all->mapest.map = ft_read_map(fd);
-	ft_check_map01(*all);
+	read = ft_read_map(fd);
+	all = ft_check_map01(read);
+	all->mapest->map = ft_clean_map(read);
+	ft_free_matrix(read);
 	ft_check_map02(*all);
-	ft_clean_map(*all);
-	ft_print_matrix(all->mapest.map);
-	ft_free_matrix(all->mapest.map);
-	//check_map(map->map);
-	//return (map);
+	ft_print_matrix(all->mapest->map);
+	//ft_free_matrix(all->mapest->map);
+	return (all);
 }
+ 
