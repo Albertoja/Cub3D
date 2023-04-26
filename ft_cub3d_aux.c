@@ -25,7 +25,7 @@ int	ft_count_lines(int fd)
 	return (ret + 1);
 }
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	ft_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -33,29 +33,28 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	create_trgb(int t, int r, int g, int b)
+int	ft_trgb(int t, int r, int g, int b) //trasformo los colores en trgb bits
 {
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
 int	my_pixel_get(t_data *data, int x, int y)
 {
-	return (*(unsigned int *)(data->addr + (y
-			* data->line_length + x * (data->bits_per_pixel / 8))));
+	return (*(unsigned int *)(data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8))));
 }
 
 void	choose_tex(t_ray ray, t_wall p, int x)
 {
 	if (ray.side == NORTH)
-		my_mlx_pixel_put(&ray.img, x, p.y,
+		ft_pixel_put(&ray.img, x, p.y,
 			my_pixel_get(&ray.tex.no, p.xwall, p.ywall));
 	else if (ray.side == EAST)
-		my_mlx_pixel_put(&ray.img, x, p.y,
+		ft_pixel_put(&ray.img, x, p.y,
 			my_pixel_get(&ray.tex.ea, p.xwall, p.ywall));
 	else if (ray.side == SOUTH)
-		my_mlx_pixel_put(&ray.img, x, p.y,
+		ft_pixel_put(&ray.img, x, p.y,
 			my_pixel_get(&ray.tex.so, p.xwall, p.ywall));
 	else if (ray.side == WEST)
-		my_mlx_pixel_put(&ray.img, x, p.y,
+		ft_pixel_put(&ray.img, x, p.y,
 			my_pixel_get(&ray.tex.we, p.xwall, p.ywall));
 }

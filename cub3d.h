@@ -12,8 +12,10 @@
 # include "libft/libft.h"
 # define WIDTH 1920
 # define HEIGHT 1080
-# define SYMBOLS "0F1 NSWE"
+# define SYMBOLS " 01NSWE"
 # define FLOOR "0NSWE"
+# define PLAYER "NSEW"
+# define COLLISION "1"
 # define BUFFER_SIZE 3
 
 typedef struct s_map {
@@ -74,6 +76,9 @@ typedef struct s_ray{
 	double	camera;
 	int		side;
 	double	distperpwall;
+	double	spinspeed;
+	double	speed;
+
 
 }	t_ray;
 
@@ -98,6 +103,11 @@ enum {
 	EAST = 2,
 	WEST = 3
 };
+
+enum {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+};
 size_t	ft_linelen(const char *line);
 t_all	*ft_parse_map(char **argv);
 char	*get_next_line(int fd);
@@ -115,9 +125,12 @@ char	**ft_clean_map(char **read);
 void	ft_free_struct(t_all *all);
 void	ft_cube(t_all *all);
 t_ray	*ft_load_tex(t_ray *ray);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	ft_pixel_put(t_data *data, int x, int y, int color);
 void	choose_tex(t_ray ray, t_wall p, int x);
-int	create_trgb(int t, int r, int g, int b);
-int	my_pixel_get(t_data *data, int x, int y);
+int		ft_trgb(int t, int r, int g, int b);
+int		my_pixel_get(t_data *data, int x, int y);
+int		ft_key_push(int key_code, t_ray *ray);
+int		ft_key_release(int key_code, t_ray *ray);
+void	ft_rotate(double *x, double *y, double angle);
 #endif
 

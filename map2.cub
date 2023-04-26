@@ -1,6 +1,6 @@
-NO ./texs/mario2.xpm
+NO ./texs/wood.xpm
 SO ./texs/mario.xpm
-WE ./texs/mario.xpm
+WE ./texs/bluestone.xpm
 EA ./texs/redbrick.xpm
 
 F 200,200,200
@@ -12,6 +12,6 @@ C 0,0,0
  111110011111
 1000000000011111111
 1000000000000000001 
-1000000000011111111
-1000011N00111
+100N000000011111111
+1000011000111
 111111111111
