@@ -43,7 +43,7 @@ t_ray	ft_print_wall(t_ray ray, int x)
 
 static t_ray	ft_rayhit(t_ray ray, char **map)
 {
-	while (ray.hit == 0) // si hit = 0 el rayo a golpeado la pared
+	while (ray.hit == 0) // mientras el rayo no choque
 	{
 		if (ray.sidedist_x < ray.sidedist_y) //saltamos al siguiente cuadro ya sea por y o por x
 		{
@@ -73,7 +73,8 @@ static t_ray	ft_rayhit(t_ray ray, char **map)
 	return (ray);
 }
 
-static t_ray	ft_set_ray(t_ray ray, int xsweep)
+
+t_ray	ft_ray(t_ray ray, char **map, int xsweep)
 {
 	ray.camera = 2 * xsweep / (double)ray.width - 1; //camara
 	ray.ray_x = ray.dir_x + ray.plane_x * ray.camera; //rayos en x
@@ -99,12 +100,6 @@ static t_ray	ft_set_ray(t_ray ray, int xsweep)
 		ray.step_x = 1; //si es positivo
 		ray.sidedist_x = (ray.map_x + 1.0 - ray.player_x) * ray.delta_x; // es la distancia hasta el primer lado a la derecha
 	}
-	return (ray);
-}
-
-t_ray	ft_ray(t_ray ray, char **map, int xsweep)
-{
-	ray = ft_set_ray(ray, xsweep);	//step es la direccion,
 	if (ray.ray_y < 0)
 	{
 		ray.step_y = -1;	//si es negativo, es la distancia por encima, si no por debajo de la posicion
@@ -115,14 +110,14 @@ t_ray	ft_ray(t_ray ray, char **map, int xsweep)
 		ray.step_y = 1;
 		ray.sidedist_y = (ray.map_y + 1.0 - ray.player_y) * ray.delta_y; //delta es la distancia que el rayo tiene que viajar de un lado x a otro x, de un lado al otro del cubo
 	}
-	ray = ft_rayhit(ray, map); //calculo el choqque del rayo
+	ray = ft_rayhit(ray, map); //calculo el choque del rayo
 	return (ray);
 }
 
 void	ft_move(t_ray *ray)
 {
-	ray->player_x += ray->dir_x * ray->speed;
-	ray->player_y += ray->dir_y * ray->speed;
+	ray->player_x = ray->player_x + (ray->dir_x * ray->speed);
+	ray->player_y = ray->player_y + (ray->dir_y * ray->speed);
 }
 
 int	ft_raycasting(t_ray *ray)

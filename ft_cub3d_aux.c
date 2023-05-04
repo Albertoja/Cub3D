@@ -46,15 +46,11 @@ int	my_pixel_get(t_data *data, int x, int y)
 void	choose_tex(t_ray ray, t_wall p, int x)
 {
 	if (ray.side == NORTH)
-		ft_pixel_put(&ray.img, x, p.y,
-			my_pixel_get(&ray.tex.no, p.xwall, p.ywall));
+		ft_pixel_put(&ray.img, x, p.y, my_pixel_get(&ray.tex.no, p.xwall, p.ywall));
 	else if (ray.side == EAST)
-		ft_pixel_put(&ray.img, x, p.y,
-			my_pixel_get(&ray.tex.ea, p.xwall, p.ywall));
+		ft_pixel_put(&ray.img, x, p.y, my_pixel_get(&ray.tex.ea, p.xwall, p.ywall));
 	else if (ray.side == SOUTH)
-		ft_pixel_put(&ray.img, x, p.y,
-			my_pixel_get(&ray.tex.so, p.xwall, p.ywall));
+		ft_pixel_put(&ray.img, x, p.y, my_pixel_get(&ray.tex.so, p.xwall, p.ywall));
 	else if (ray.side == WEST)
-		ft_pixel_put(&ray.img, x, p.y,
-			my_pixel_get(&ray.tex.we, p.xwall, p.ywall));
+		ft_pixel_put(&ray.img, x, p.y, my_pixel_get(&ray.tex.we, p.xwall, p.ywall));
 }

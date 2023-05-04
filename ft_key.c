@@ -26,11 +26,11 @@ int	ft_key_release(int key_code, t_ray *ray)
 	return (0);
 }
 
-void	ft_rotate(double *x, double *y, double angle)
+void	ft_rotate(double *x, double *y, double rotSpeed)
 {
-	double	oldx;
+	double	oldir;
 
-	oldx = *x;
-	*x = (*x) * cos(angle) - (*y) * sin(angle);
-	*y = oldx * sin(angle) + *y * cos(angle);
+	oldir = *x;
+	*x = (*x) * cos(rotSpeed) - (*y) * sin(rotSpeed);
+	*y = oldir * sin(rotSpeed) + *y * cos(rotSpeed);
 }
