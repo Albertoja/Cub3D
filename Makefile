@@ -1,4 +1,19 @@
-SRCS	= main.c ft_print_matrix.c get_next_line.c get_next_line_aux.c ft_parse_map.c ft_cub3d_aux.c ft_free_matrix.c ft_check_map01.c ft_check_map02.c ft_error.c ft_clean_map.c ft_cube.c ft_load_tex.c ft_key.c
+SRCS	=	main.c \
+			get_next_line.c \
+			get_next_line_aux.c \
+			ft_parse_map.c \
+			ft_cube2.c \
+			ft_cub3d_aux.c \
+			ft_check_map01.c \
+			ft_check_map02.c \
+			utils.c \
+			utils2.c \
+			ft_clean_map.c\
+			ft_cube.c \
+			ft_load_tex.c \
+			ft_key.c\
+			debug.c \
+			ft_check_map_init.c\
 
 OBJS	= ${SRCS:.c=.o}
 

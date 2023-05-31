@@ -1,27 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_key.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 17:34:10 by magonzal          #+#    #+#             */
+/*   Updated: 2023/05/31 17:23:21 by magonzal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
+
+int	endwindow(t_ray	*ray)
+{
+	(void )ray;
+	exit(0);
+}
 
 int	ft_key_push(int key_code, t_ray *ray)
 {
-	if (key_code == 0)
+	if (key_code == 53)
+		endwindow(ray);
+	if (key_code == KEYLEFT)
 		ray->spinspeed = -0.2;
-	if (key_code == 2)
+	if (key_code == KEYRIGHT)
 		ray->spinspeed = 0.2;
-	if (key_code == 13)
-		ray->speed = 0.5;
-	if (key_code == 1)
-		ray->speed = -0.5;
+	if (key_code == KEYUP)
+		ray->speed = 0.2;
+	if (key_code == KEYDOWN)
+		ray->speed = -0.2;
 	return (0);
 }
 
 int	ft_key_release(int key_code, t_ray *ray)
 {
-	if (key_code == 0)
+	if (key_code == KEYLEFT)
 		ray->spinspeed = 0;
-	if (key_code == 2)
+	if (key_code == KEYRIGHT)
 		ray->spinspeed = 0;
-	if (key_code == 13)
+	if (key_code == KEYUP)
 		ray->speed = 0;
-	if (key_code == 1)
+	if (key_code == KEYDOWN)
 		ray->speed = 0;
 	return (0);
 }

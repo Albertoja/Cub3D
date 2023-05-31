@@ -1,4 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_parse_map.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aespinos <aespinos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 17:35:07 by magonzal          #+#    #+#             */
+/*   Updated: 2023/05/31 21:42:39 by aespinos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <cub3d.h>
+
+static int	mapname(char *m)
+{
+	int	l;
+	int	p;
+
+	l = ft_strlen(m);
+	p = l - 4;
+	if (m[l - 1] == 'b' && m[l - 2] == 'u' && m[l - 3] == 'c' && m[p] == '.' )
+		return (0);
+	return (1);
+}
 
 int	count_strs(char **arr)
 {
@@ -54,22 +78,21 @@ char	**ft_read_map(int fd)
 	return (map);
 }
 
-t_all *ft_parse_map(char **argv)
+t_all	*ft_parse_map(char **argv)
 {
 	t_all	*all;
 	int		fd;
 	char	**read;
+	int		i;
 
 	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-		exit(0);
+	if (fd < 0 ||mapname(argv[1]) == 1)
+		ft_error("bad .cub file");
 	read = ft_read_map(fd);
 	all = ft_check_map01(read);
-	all->mapest->map = ft_clean_map(read);
+	i = ft_check_map_init(read);
+	all->mapest->map = ft_clean_map(read, i);
 	ft_free_matrix(read);
 	ft_check_map02(*all);
-	ft_print_matrix(all->mapest->map);
-	//ft_free_matrix(all->mapest->map);
 	return (all);
 }
- 
