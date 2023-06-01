@@ -6,7 +6,7 @@
 /*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:34:10 by magonzal          #+#    #+#             */
-/*   Updated: 2023/05/31 17:23:21 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:02:32 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	ft_key_push(int key_code, t_ray *ray)
 {
 	if (key_code == 53)
 		endwindow(ray);
-	if (key_code == KEYLEFT)
+	if (key_code == KEYLEFT || key_code == 123)
 		ray->spinspeed = -0.2;
-	if (key_code == KEYRIGHT)
+	if (key_code == KEYRIGHT || key_code == 124)
 		ray->spinspeed = 0.2;
 	if (key_code == KEYUP)
 		ray->speed = 0.2;
@@ -35,9 +35,9 @@ int	ft_key_push(int key_code, t_ray *ray)
 
 int	ft_key_release(int key_code, t_ray *ray)
 {
-	if (key_code == KEYLEFT)
+	if (key_code == KEYLEFT || key_code == 123)
 		ray->spinspeed = 0;
-	if (key_code == KEYRIGHT)
+	if (key_code == KEYRIGHT || key_code == 124)
 		ray->spinspeed = 0;
 	if (key_code == KEYUP)
 		ray->speed = 0;

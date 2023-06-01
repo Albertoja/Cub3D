@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map01.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aespinos <aespinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:46:23 by magonzal          #+#    #+#             */
-/*   Updated: 2023/05/31 21:41:34 by aespinos         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:33:52 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*ft_check_tex(char **map, char *str)
 
 	i = -1;
 	if (!map)
-		return NULL;
+		return (NULL);
 	while (map[++i])
 	{
 		j = 0;

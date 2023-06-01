@@ -6,7 +6,7 @@
 /*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:27:12 by magonzal          #+#    #+#             */
-/*   Updated: 2023/05/31 17:36:07 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:43:53 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,33 @@ void	ft_move(t_ray *ray)
 {
 	ray->player_x = ray->player_x + (ray->dir_x * ray->speed);
 	ray->player_y = ray->player_y + (ray->dir_y * ray->speed);
+}
+
+t_ray	ft_rayhit(t_ray ray, char **map)
+{
+	while (ray.hit == 0)
+	{
+		if (ray.sidedist_x < ray.sidedist_y)
+		{
+			ray.sidedist_x += ray.delta_x;
+			ray.map_x += ray.step_x;
+			if (ray.ray_x > 0)
+				ray.side = EAST;
+			else
+				ray.side = WEST;
+		}
+		else
+		{
+			ray.sidedist_y += ray.delta_y;
+			ray.map_y += ray.step_y;
+			if (ray.ray_y > 0)
+				ray.side = SOUTH;
+			else
+				ray.side = NORTH;
+		}
+		if (map[ray.map_y][ray.map_x] == '1')
+			ray.hit = 1;
+	}
+	auxcub(&ray);
+	return (ray);
 }

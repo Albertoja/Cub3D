@@ -6,7 +6,7 @@
 /*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 16:01:42 by magonzal          #+#    #+#             */
-/*   Updated: 2023/05/31 17:41:12 by magonzal         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:43:36 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,15 @@ void	auxcub(t_ray *ray)
 		ray->distperpwall = ray->sidedist_y - ray->delta_y;
 }
 
-t_ray	ft_rayhit(t_ray ray, char **map)
-{
-	while (ray.hit == 0)
-	{
-		if (ray.sidedist_x < ray.sidedist_y)
-		{
-			ray.sidedist_x += ray.delta_x;
-			ray.map_x += ray.step_x;
-			if (ray.ray_x > 0)
-				ray.side = EAST;
-			else
-				ray.side = WEST;
-		}
-		else
-		{
-			ray.sidedist_y += ray.delta_y;
-			ray.map_y += ray.step_y;
-			if (ray.ray_y > 0)
-				ray.side = SOUTH;
-			else
-				ray.side = NORTH;
-		}
-		if (map[ray.map_y][ray.map_x] == '1')
-			ray.hit = 1;
-	}
-	auxcub(&ray);
-	return (ray);
-}
-
 void	collisions(t_ray *ray)
 {
-	if (ft_strchr("1", ray->mapest->map[(int)ray->player_y]
-		[(int)(ray->player_x + ray->dir_x * ray->speed * 2)]) == NULL)
+	char	**map;
+
+	map = ray->mapest->map;
+	if (ft_strchr("1", map[(int)ray->player_y]
+			[(int)(ray->player_x + ray->dir_x * ray->speed * 2)]) == NULL)
 		ray->player_x += ray->dir_x * ray->speed;
-	if (ft_strchr("1",ray->mapest->map[(int)(ray->player_y + ray->dir_y * ray->speed * 2)]
+	if (ft_strchr("1", map[(int)(ray->player_y + ray->dir_y * ray->speed * 2)]
 		[(int)ray->player_x]) == NULL)
 			ray->player_y += ray->dir_y * ray->speed;
 }

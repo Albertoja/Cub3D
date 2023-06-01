@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_map02.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aespinos <aespinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 15:50:02 by magonzal          #+#    #+#             */
-/*   Updated: 2023/05/31 21:42:47 by aespinos         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:34:50 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_check_map02(t_all all)
 	int	j;
 	int	player;
 	int	i;
+
 	i = -1;
 	player = 0;
 	while (all.mapest->map[++i])
@@ -64,7 +65,7 @@ void	ft_check_map02(t_all all)
 		j = -1;
 		while (all.mapest->map[i][++j])
 		{
-			if(ft_strchr(PLAYER, all.mapest->map[i][j]))
+			if (ft_strchr(PLAYER, all.mapest->map[i][j]))
 				player++;
 			if (!ft_strchr(SYMBOLS, all.mapest->map[i][j]))
 				ft_error("bad symbols");
@@ -72,6 +73,6 @@ void	ft_check_map02(t_all all)
 				ft_check_map_floor(all, i, j);
 		}
 	}
-	if(player != 1)
+	if (player != 1)
 		ft_error("bad player");
 }

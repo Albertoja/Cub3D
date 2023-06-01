@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aespinos <aespinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 18:03:23 by magonzal          #+#    #+#             */
-/*   Updated: 2023/05/31 21:36:36 by aespinos         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:55:01 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define KEYDOWN 1
 # define KEYRIGHT 2
 # define KEYLEFT 0
+# define ISSPACE " \t\f\r\n\v"
 
 typedef struct s_map {
 	char	*no_tex_path;
@@ -166,4 +167,5 @@ int		ft_print_matrix(char **matrix);
 int		mapname2(char *m);
 int		ft_check_map_init(char **read);
 char	*ft_check_good(char *str);
+void	auxcub(t_ray *ray);
 #endif

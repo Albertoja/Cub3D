@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aespinos <aespinos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:35:07 by magonzal          #+#    #+#             */
-/*   Updated: 2023/05/31 21:42:39 by aespinos         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:55:58 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ t_all	*ft_parse_map(char **argv)
 	int		i;
 
 	fd = open(argv[1], O_RDONLY);
-	if (fd < 0 ||mapname(argv[1]) == 1)
+	if (fd < 0 || mapname(argv[1]) == 1)
 		ft_error("bad .cub file");
 	read = ft_read_map(fd);
 	all = ft_check_map01(read);
