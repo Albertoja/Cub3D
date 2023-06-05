@@ -30,7 +30,7 @@ CC	= gcc
 
 RM	= rm -f
 
-CFLAGS	= -I. -Wall -Wextra -Werror -Imlx
+CFLAGS	= -I. -Wall -Wextra -Werror -Imlx #-fsanitize=address
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
